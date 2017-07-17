@@ -17,9 +17,9 @@ var clockRunning = false;
 	}
 
 	// Store my images in new variables. 
-	var question1Pic = createImage("bug.jpg");
-	var question2Pic = createImage("");
-	var question3Pic = createImage("");
+	var question1Pic = createImage("http://www.webdevelopersnotes.com/wp-content/uploads/the-harvard-mark-ii-bug-moth.jpg");
+	var question2Pic = createImage("http://www.azquotes.com/picture-quotes/quote-understand-well-as-i-may-my-comprehension-can-only-be-an-infinitesimal-fraction-of-all-ada-lovelace-127-25-16.jpg");
+	var question3Pic = createImage("https://s-media-cache-ak0.pinimg.com/originals/5e/91/e6/5e91e6986a64da03ec6de118b44302a6.jpg");
 
 	// Array to hold images.
 	var myImages = [question1Pic, question2Pic, question3Pic];
@@ -105,7 +105,6 @@ var clockRunning = false;
 				}
 			}
 			else{
-				console.log("GAME OVER SCREEN");
 				gameOver();
 			}
 		}
@@ -116,9 +115,7 @@ var clockRunning = false;
 			$('#question').empty();
 			$('h3').empty();
 			$('#didYouWin').html("CORRECT!!!");
-
-			// $('#didYouWinPic').html(myImages[arrayCount]);
-			$('#didYouWinPic').attr('src', "/bug.jpg");
+			$('#didYouWinPic').html(myImages[arrayCount]);
 			
 			// correctAnswer++;
 			correctAnswer++;
@@ -134,9 +131,8 @@ var clockRunning = false;
 			$('#question').empty();
 			$('h3').empty();
 			$('#didYouWin').html("WRONG ANSWER");
-			$('#didYouWinPic').html("There will be a picture here!");
+			$('#didYouWinPic').html(myImages[arrayCount]);
 			$('#correctWas').html("The correct answer was " + rightAns);
-
 			
 			// incorrectAnswer++;
 			incorrectAnswer++;
@@ -148,12 +144,17 @@ var clockRunning = false;
 
 	// Out of Time Function - call when the user runs out of time. 
 		function outOfTime(){
+			
+			// Check if their answer is correct.
+			rightAns = triviaArray[arrayCount].correct;
+			
 			// Show the out of time screen
 			$('#question').empty();
 			$('h3').empty();
 			$('#didYouWin').html("OUT OF TIME");
 			$('#correctWas').html("The correct answer was " + rightAns);
-
+			$('#didYouWinPic').html(myImages[arrayCount]);
+			
 			// unanswered++;
 			unanswered++;
 
@@ -186,7 +187,7 @@ var clockRunning = false;
 	// Trivia2 object - holds the second question and potential answers.
 		var trivia1 = new Trivia("Who is widely recognized as the first computer programmer?", "James Gosling", "Frances Spence", "Susan Kare", "Ada Lovelace");
 	// Trivia3 object - holds the third question and potential answers.
-		var trivia2 = new Trivia("Who created the Spanning Tree Protocal and is known as the 'Mother of the Internet?", "Janese Swanson", "Carol Shaw", "Anita Borg", "Radia Perlman");
+		var trivia2 = new Trivia("Who created the Spanning Tree Protocal and is known as the 'Mother of the Internet'?", "Janese Swanson", "Carol Shaw", "Anita Borg", "Radia Perlman");
 
 	// Array an my trivia objects. 
 		var triviaArray = [trivia0, trivia1, trivia2];
@@ -250,8 +251,7 @@ $(document).ready(function(){
 				// Run the 'Incorrect Function'.
 				Incorrect();
 			}
-
-			
+						
 		})
 
 	// When the player clicks Start Over, the page reloads. 
