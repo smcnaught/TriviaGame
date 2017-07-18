@@ -9,6 +9,11 @@ var rightAns;
 var timer;
 var clockRunning = false;
 	
+	// Function to reset the page. 
+	function resetPage(){
+				
+			}
+
 	// Function to create new images. 
 	function createImage(src){
 		var img = new Image();
@@ -18,7 +23,7 @@ var clockRunning = false;
 
 	// Store my images in new variables. 
 	var question1Pic = createImage("http://www.webdevelopersnotes.com/wp-content/uploads/the-harvard-mark-ii-bug-moth.jpg");
-	var question2Pic = createImage("http://www.azquotes.com/picture-quotes/quote-understand-well-as-i-may-my-comprehension-can-only-be-an-infinitesimal-fraction-of-all-ada-lovelace-127-25-16.jpg");
+	var question2Pic = createImage("https://adacollege.files.wordpress.com/2016/04/ada-lovelace-quote.jpg?w=236");
 	var question3Pic = createImage("https://s-media-cache-ak0.pinimg.com/originals/5e/91/e6/5e91e6986a64da03ec6de118b44302a6.jpg");
 
 	// Array to hold images.
@@ -72,7 +77,7 @@ var clockRunning = false;
 			}
 		}
 
-	// nextQueston Function - is called when user gets an answer correc, incorrect, or runs out of time.
+	// nextQueston Function - is called when user gets an answer correct, incorrect, or runs out of time.
 		function nextQuestion(){
 
 			// If the player hasn't answered all questions, move to next question, else call the "gameOver Function"
@@ -191,7 +196,6 @@ var clockRunning = false;
 
 	// Array an my trivia objects. 
 		var triviaArray = [trivia0, trivia1, trivia2];
-
 	
 
 
@@ -204,7 +208,7 @@ $(document).ready(function(){
 		$('#startButton').click(function(){
 
 			// Start button disappears.
-			$('#startButton').remove();
+			$('#startButton').hide();
 			$("#didYouWin").empty();
 			$("#correctWas").empty();
 
@@ -256,6 +260,8 @@ $(document).ready(function(){
 
 	// When the player clicks Start Over, the page reloads. 
 	$("#startOver").click(function(){
+		// location.reload();
+		// resetPage();
 		location.reload();
 	})
 	
