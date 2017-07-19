@@ -11,7 +11,26 @@ var clockRunning = false;
 	
 	// Function to reset the page. 
 	function resetPage(){
-				
+			correctAnswer = 0;
+			incorrectAnswer = 0;
+			unanswered = 0;
+			arrayCount = 0;
+			count = Math.floor(Math.random() * 3);
+			wait;
+			rightAns;
+			timer;
+			clockRunning = false;
+			time.stop();
+			$("#startOver").hide();
+			$("#didYouWin").empty();
+			$("#correctWas").empty();
+			$("#startButton").show();
+			$('#ans0').empty();
+			$("#ans1").empty();
+			$("#ans2").empty();
+			$('#ans3').empty();
+			$("#stats").empty();
+			$("#timer").html("Time Remaining: 30 Seconds"); 
 			}
 
 	// Function to create new images. 
@@ -260,9 +279,9 @@ $(document).ready(function(){
 
 	// When the player clicks Start Over, the page reloads. 
 	$("#startOver").click(function(){
+		
+		resetPage();
 		// location.reload();
-		// resetPage();
-		location.reload();
 	})
 	
 	
